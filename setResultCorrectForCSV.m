@@ -1,0 +1,10 @@
+function [arrayCsv, counter_types] = setResultCorrectForCSV(MATRIX, arrayCsv, method, file_name, counter_types, counter_types_method)
+    PSNR = MATRIX(method).Values().PSNR;
+    IFS = MATRIX(method).Values().IFS;
+    SR_SIM = MATRIX(method).Values().SR_SIM;
+    T_correct = MATRIX(method).Values().T_correct;
+    arrayCsv(file_name-2+counter_types,counter_types_method) = PSNR;
+    arrayCsv(file_name-2+counter_types,counter_types_method + 1) = IFS;
+    arrayCsv(file_name-2+counter_types,counter_types_method + 2) = SR_SIM;
+    arrayCsv(file_name-2+counter_types,counter_types_method + 3) = T_correct;
+    counter_types = counter_types + 1;
